@@ -6,7 +6,7 @@ import {
     PRODUCT_LIST_FAIL
 } from '../constants/productConstants'
 
-const ListProducts=()=> async(dispatch)=>{
+export const ListProducts=()=> async(dispatch)=>{
     try{
         dispatch({
             type:PRODUCT_LIST_REQUEST})
