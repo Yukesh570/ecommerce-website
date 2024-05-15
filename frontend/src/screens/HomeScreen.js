@@ -4,6 +4,8 @@ import { Row,Col } from 'react-bootstrap'
 import Product from '../components/Product'
 import { ListProducts } from '../actions/productActions'
 import axios from 'axios'
+import Spinner from '../components/Spinner'
+import Errormsg from '../components/Errormsg'
 function HomeScreen() {
   // const[products,setProducts]=useState([])
   const dispatch = useDispatch()
@@ -21,8 +23,8 @@ function HomeScreen() {
   return ( 
       <div>
         <h1>Latest product</h1>
-        {loading ? <h2>loading...</h2>
-            :error ? <h3>{error}</h3>         
+        {loading ? <Spinner/>
+            :error ? <Errormsg >{error}</Errormsg>         
             :
             <Row>
             {products.map(product=>(

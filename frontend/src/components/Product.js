@@ -17,7 +17,7 @@ function Product({product}) {
         </Link>
             <Card.Text as='div'>
                 <div>
-                    <Rating value={product.rating} text={`${product.numReviews}review`} color={'#f8e825'}/> 
+                    <Rating value={product.rating} text={`${product.numReview}review`} color={'#f8e825'}/> 
                 </div>
             </Card.Text>
 

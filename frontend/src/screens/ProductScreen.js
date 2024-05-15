@@ -2,41 +2,51 @@ import React,{useState,useEffect} from 'react'
 import { useParams,Link } from 'wouter'
 import Form from 'react-bootstrap/Form';
 import Rating from '../components/Rating'
-
-import axios from 'axios'
-
-import { Row,Col,Image,ListGroup,Button,Card, ListGroupItem } from 'react-bootstrap'
-
+import { ListProductDetails } from '../actions/productActions'
+import { useDispatch,useSelector  } from 'react-redux'
+import { Row,Col,Image,ListGroup,Button,Card } from 'react-bootstrap'
+import Spinner from '../components/Spinner'
+import Errormsg from '../components/Errormsg'
 
 function ProductScreen({}) {
-    const{id}=useParams();  // product._id is a parameter and userparams takes the parameter and put it to id
-    // const product =products.find((p)=>p._id===id) products is an array
-    const[product,setProduct]=useState([])
+    const{id}=useParams();  
+    const dispatch=useDispatch()
+    const productDetails =useSelector(state=>state.productDetails)
+    const {error,loading,product}=productDetails
+
+    // product._id is a parameter and userparams takes the parameter and put it to id
+    // const product =products.find((p)=>p._id===id) //products is an array
+    // const[product,setProduct]=useState([])
     useEffect(()=>{
-        async function fetchProduct(){
-            const{data}=await axios.get(`/api/product/${id}/`) 
-            setProduct(data)
-        } 
-        fetchProduct()
-    },[id])
+        dispatch(ListProductDetails(id))
+        // async function fetchProduct(){
+        //     const{data}=await axios.get(`/api/product/${id}/`) 
+        //     setProduct(data)
+        // } 
+        // fetchProduct()
+    },[dispatch,id])
+
   return (
     <div>
         <Link to='/home'> 
             
         <Button variant="outline-success">Go Back</Button>
         </Link>
-        <Row>
+        {loading ? <Spinner/>
+            :error ? <Errormsg >{error}</Errormsg>  
+            :
+            <Row>
             <Col md={6}>
                 <Image src={product.image} alt={product.name} fluid/>
             </Col>
-            <Col md={3}>
+            <Col md={3}> 
                 <ListGroup  variant='flush'>
                     <ListGroup.Item >
                         <h5>{product.name}</h5>
                     </ListGroup.Item>
                      
                     <ListGroup.Item >
-                        <Rating value={product.rating} text={`${product.numReviews}review`} color={'#f8e825'}/>
+                        <Rating value={product.rating} text={`${product.numReview}review`} color={'#f8e825'}/>
                     </ListGroup.Item>
                     
                     <ListGroup.Item >
@@ -79,6 +89,8 @@ function ProductScreen({}) {
                 </Card>
             </Col>
         </Row>
+        }
+        
         
           
            
