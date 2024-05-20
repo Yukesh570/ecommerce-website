@@ -1,18 +1,26 @@
 import React,{useState,useEffect} from 'react'
 import { useParams,Link } from 'wouter'
+import Button from 'react-bootstrap/Button';
+import { useNavigate, useMatch } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import Form from 'react-bootstrap/Form';
 import Rating from '../components/Rating'
 import { ListProductDetails } from '../actions/productActions'
 import { useDispatch,useSelector  } from 'react-redux'
-import { Row,Col,Image,ListGroup,Button,Card } from 'react-bootstrap'
+import { Row,Col,Image,ListGroup,Card } from 'react-bootstrap'
 import Spinner from '../components/Spinner'
 import Errormsg from '../components/Errormsg'
+import '../style.css';
 
 function ProductScreen({}) {
+    const[qty, setQty]=useState(1)
     const{id}=useParams();  
     const dispatch=useDispatch()
     const productDetails =useSelector(state=>state.productDetails)
     const {error,loading,product}=productDetails
+
+
 
     // product._id is a parameter and userparams takes the parameter and put it to id
     // const product =products.find((p)=>p._id===id) //products is an array
@@ -25,18 +33,33 @@ function ProductScreen({}) {
         // } 
         // fetchProduct()
     },[dispatch,id])
+  
+    const navigate = useNavigate();
+    const addToCartHandler=()=>{
+        navigate(`/cart/${id}?qty=${qty}`);
+    };
+
+        
+
+       
+
+        
+
+        
+
+    // }
 
   return (
     <div>
         <Link to='/home'> 
             
-        <Button variant="outline-success">Go Back</Button>
+        <Button variant="outline-success" className='my-2'>Go Back</Button>
         </Link>
         {loading ? <Spinner/>
             :error ? <Errormsg >{error}</Errormsg>  
             :
             <Row>
-            <Col md={6}>
+            <Col md={5} className='shift-right2'>
                 <Image src={product.image} alt={product.name} fluid/>
             </Col>
             <Col md={3}> 
@@ -83,6 +106,42 @@ function ProductScreen({}) {
                                 </Col>
                             
                         </Row>
+                        </ListGroup.Item>
+                        {product.countInStock > 0 &&(
+                            <ListGroup.Item>
+                                <Row>
+                                    <Col>Qty</Col>
+                                    <Col xs='auto' className='my-1'>
+                                        <Form.Control
+                                            as="select"
+                                            value={qty}
+                                            onChange={(e)=>setQty(e.target.value)}
+                                             
+                                        >
+                                            {
+                                                [...Array(product.countInStock).keys()].map((x)=>(
+                                                    <option key={x+1} value={x+1}>
+                                                        {x+1}
+
+                                                
+                                                    </option>
+                                                ))
+                                            }
+                                           
+                                        </Form.Control>
+                                    </Col>
+                                </Row>
+                            </ListGroup.Item>
+                        )}
+
+                        
+                        <ListGroup.Item  > 
+                            <Button 
+                                onClick={addToCartHandler}
+                                className='shift-right' 
+                                disabled={product.countInStock===0}
+                                variant="outline-success" 
+                                type='button' >{product.countInStock===0 ?'Out of Stock' :'Add to Cart'} </Button> 
                         </ListGroup.Item>
                     
                     </ListGroup>
