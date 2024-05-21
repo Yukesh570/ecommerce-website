@@ -13,7 +13,9 @@ function App() {
         <main className='py-2'> 
           <BrowserRouter>
               <Route path="/home" component={HomeScreen} />
-              <Route path="/product/:id" component={ProductScreen} />             
+              <Route path="/product/:id" component={ProductScreen} /> 
+              <Route path="/cart/:id?" component={CartScreen} />             
+            
           </BrowserRouter>
         </main>
       <Footer />

@@ -1,8 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { useParams,Link } from 'wouter'
 import Button from 'react-bootstrap/Button';
-import { useNavigate, useMatch } from 'react-router-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import Form from 'react-bootstrap/Form';
 import Rating from '../components/Rating'
@@ -23,7 +22,7 @@ function ProductScreen({}) {
 
 
     // product._id is a parameter and userparams takes the parameter and put it to id
-    // const product =products.find((p)=>p._id===id) //products is an array
+    // const product = products.find((p)=>p._id===id) //products is an array
     // const[product,setProduct]=useState([])
     useEffect(()=>{
         dispatch(ListProductDetails(id))
@@ -36,16 +35,8 @@ function ProductScreen({}) {
   
     const navigate = useNavigate();
     const addToCartHandler=()=>{
-        navigate(`/cart/${id}?qty=${qty}`);
+        navigate(`/cart/${id}?qty=${qty}`); //The part after the question mark (?) in a URL is known as the query string, which can contain one or more parameters in the format key=value.
     };
-
-        
-
-       
-
-        
-
-        
 
     // }
 

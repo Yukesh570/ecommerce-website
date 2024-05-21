@@ -1,6 +1,6 @@
 import Alert from 'react-bootstrap/Alert';
 
-function AdditionalContentExample({children}) {
+function Errormsg({children}) {
   return (
     <Alert variant="danger">
         {children}
@@ -8,4 +8,4 @@ function AdditionalContentExample({children}) {
   );
 }
 
-export default AdditionalContentExample;
+export default Errormsg;
