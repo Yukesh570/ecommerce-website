@@ -2,3 +2,26 @@ main{
     min-height: 80vh;
 }
 
+h1{
+    font-size: medium;
+    padding:1rem 0;
+}
+
+.shift-right {
+    margin-left: 80px;
+  }
+
+.font h3{
+    font-size:x-large;
+    padding:1rem 0;
+}
+.font h2{
+    font-size:xx-large;
+   
+}
+
+.center-content {
+    display: flex;
+    justify-content: center;
+ }
+

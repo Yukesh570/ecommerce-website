@@ -126,10 +126,9 @@ function ProductScreen({}) {
                         )}
 
                         
-                        <ListGroup.Item  > 
+                        <ListGroup.Item className='center-content' > 
                             <Button 
                                 onClick={addToCartHandler}
-                                className='shift-right' 
                                 disabled={product.countInStock===0}
                                 variant="outline-success" 
                                 type='button' >{product.countInStock===0 ?'Out of Stock' :'Add to Cart'} </Button> 

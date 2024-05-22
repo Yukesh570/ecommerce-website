@@ -42,7 +42,10 @@ function header() {
               className="me-2"
               aria-label="Search"
             />
-            <Button   >Search</Button>
+            <Button 
+               variant='outline-success'
+
+              >Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>

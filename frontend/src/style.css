@@ -4,10 +4,14 @@
   align-items: center;
 } */
 
-.shift-right {
-    margin-left: 80px;
-  }
+/* .shift-right {
+    margin-left: 11px;
+  } */
 
 .shift-right2 {
   margin-left: 30px;
+}
+.center-content {
+  display: flex;
+  justify-content: center;
 }
