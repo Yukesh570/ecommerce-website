@@ -91,11 +91,11 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
 }
 
-# SIMPLE_JWT = {
-#   # It will work instead of the default serializer(TokenObtainPairSerializer).
-#   "TOKEN_OBTAIN_SERIALIZER": "my_app.serializers.MyTokenObtainPairSerializer",
-#   # ...
-# }
+SIMPLE_JWT = {
+  # It will work instead of the default serializer(TokenObtainPairSerializer).
+  "TOKEN_OBTAIN_SERIALIZER": "my_app.serializers.MyTokenObtainPairSerializer",
+  # ...
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
