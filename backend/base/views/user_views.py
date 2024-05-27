@@ -13,17 +13,22 @@ from rest_framework import status
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
-     def validate(self, attrs):
-        data = super().validate(attrs)
-        serializer = UserSerializerWithToken(self.user).data
+     def validate(self, attrs):    
+            data = super().validate(attrs)
+            serializer = UserSerializerWithToken(self.user).data
 
-        for k,v in serializer.items(): #k and v are the key value pait
-            data[k] = v
-
-        return data
+            for k,v in serializer.items(): #k and v are the key value pait
+                data[k] = v
+            return data
+        
 
 class MyTokenObtainPairView(TokenObtainPairView):
-    serializer_class=MyTokenObtainPairSerializer   
+            serializer_class=MyTokenObtainPairSerializer   
+            
+            
+
+    
+    
 @api_view(['POST'])
 def registerUser(request):
     data=request.data #POST bata data request garxa
@@ -39,7 +44,7 @@ def registerUser(request):
         serializer= UserSerializerWithToken(user,many=False)
         return Response(serializer.data)
     except:
-        message ={'detail':'User with this email is already taken'} #username is unique because username is returned in admin (header)#def(self)  return (self,username)#
+        message ={'detail':'User with this email already exists'} #username is unique because username is returned in admin (header)#def(self)  return (self,username)#
         return Response(message,status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -47,11 +52,13 @@ def registerUser(request):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def getUserProfile(request):
-    user = request.user  #user is taken from the token using api_view
-    print('data',user)
+        user = request.user  #user is taken from the token using api_view
+        print('data',user)
+        serializers=UserSerializer(user, many=False)
+        return Response(serializers.data)
+   
 
-    serializers=UserSerializer(user, many=False)
-    return Response(serializers.data)
+
 
 @api_view(['GET'])
 @permission_classes([IsAdminUser])

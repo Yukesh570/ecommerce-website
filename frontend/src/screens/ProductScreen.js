@@ -43,7 +43,7 @@ function ProductScreen({}) {
   return (
     <div>
         <Link to='/home'> 
-            
+        
         <Button variant="outline-success" className='my-2'>Go Back</Button>
         </Link>
         {loading ? <Spinner/>

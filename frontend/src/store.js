@@ -4,20 +4,27 @@ import {configureStore} from '@reduxjs/toolkit'
 // import { composeWithDevTools } from "@redux-devtools/extension";
 import { productListReducer,productDetailsReducer } from './reducers/productReducers'
 import { cartReducer } from './reducers/cartReducers'
+import { userLoginReducer } from './reducers/userReducers'
 
 
 const reducer = combineReducers({
     productList:productListReducer,
     productDetails:productDetailsReducer,
     Cart:cartReducer,
+    userLogin:userLoginReducer,
 })
 const cartItemFromStorage = localStorage.getItem('cartItems') ?
         JSON.parse(localStorage.getItem('cartItems')) : []
 
+
+const userInfoFromStorage = localStorage.getItem('userInfo') ?
+JSON.parse(localStorage.getItem('userInfo')) : null   //huge difference in null and [] when [] caused problem in useeffect
+        
        
 const initialState ={
         
-        Cart:{cartItems: cartItemFromStorage}
+        Cart:{cartItems: cartItemFromStorage},
+        userLogin:{userInfo: userInfoFromStorage}
 }
 // const middleware=[thunk];
 const store = configureStore({

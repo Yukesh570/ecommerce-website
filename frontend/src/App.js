@@ -6,6 +6,8 @@ import Header from './components/Header';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
+import LoginScreen from './screens/LoginScreen';
+
 function App() {
   return (
     <div>
@@ -15,7 +17,8 @@ function App() {
               <Route path="/home" component={HomeScreen} />
               <Route path="/product/:id" component={ProductScreen} /> 
               <Route path="/cart/:id?" component={CartScreen} />             
-            
+              <Route path="/login" component={LoginScreen} />
+
           </BrowserRouter>
         </main>
       <Footer />

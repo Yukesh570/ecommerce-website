@@ -132,7 +132,7 @@ function CartScreen() {
           <Card>
             <ListGroup varient='flush' className='font' >
                 <ListGroup.Item >
-                  <h2>SUBTOTAL : ({cartItems.reduce((acc, item) =>acc + item.qty,0)}) ITEMS </h2>
+                  <h2>SUBTOTAL : ({cartItems.reduce((acc, item) =>acc + Number(item.qty),0)}) ITEMS </h2>
                   <h3>${cartItems.reduce((acc, item) =>acc + item.qty * item.price , 0 ).toFixed(2)}</h3>
                 </ListGroup.Item>
                 <ListGroup.Item className='center-content'>

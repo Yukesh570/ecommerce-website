@@ -27,7 +27,9 @@ function HomeScreen() {
             :error ? <Errormsg >{error}</Errormsg>         
             :
             <Row>
-            {products.map(product=>(
+            {products.map(product=>(                                //maps over an array called products returns a new array of React elements based on the logic provided inside the map function.
+
+
                 <Col key={product._id} sm={12} md={8} lg={4} xl={3}>
                     <Product product={product}/>    
                 </Col>
