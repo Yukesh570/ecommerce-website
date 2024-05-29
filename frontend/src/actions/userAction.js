@@ -142,12 +142,9 @@ export const updateUserProfile=(user)=> async(dispatch,getState)=>{
     try{
         dispatch({
             type:USER_UPDATE_PROFILE_REQUEST})
-
-
             const {
                 userLogin:{userInfo} //from userLogin we took userInfo
-
-            }=getState()
+                  }=getState()
         const config ={
             headers:{
                 'Content-type':'application/json',

@@ -21,12 +21,20 @@ const cartItemFromStorage = localStorage.getItem('cartItems') ?
 
 
 const userInfoFromStorage = localStorage.getItem('userInfo') ?
-JSON.parse(localStorage.getItem('userInfo')) : null   //huge difference in null and [] when [] caused problem in useeffect
+    JSON.parse(localStorage.getItem('userInfo')) : null   //huge difference in null and [] when [] caused problem in useeffect
         
-       
+const shippingAddressFromStorage = localStorage.getItem('shippingAddress') ?
+    JSON.parse(localStorage.getItem('shippingAddress')) : {} // {} because it is object 
+
+        
 const initialState ={
         
-        Cart:{cartItems: cartItemFromStorage},
+        Cart:{
+            cartItems: cartItemFromStorage,
+            shippingAddress:shippingAddressFromStorage, 
+
+        
+        },
         userLogin:{userInfo: userInfoFromStorage}
 }
 // const middleware=[thunk];

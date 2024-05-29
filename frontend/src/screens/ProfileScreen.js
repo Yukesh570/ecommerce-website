@@ -130,7 +130,7 @@ function ProfileScreen( ) {
 
             </Form.Control>
         </Form.Group>
-        <Button type='submit' varient='primary' >update</Button>
+        <Button type='submit' variant='outline-success' >update</Button>
         </Form>
       </Col>
 

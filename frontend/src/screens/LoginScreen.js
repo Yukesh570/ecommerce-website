@@ -64,7 +64,7 @@ function LoginScreen() {
 
             </Form.Control>
         </Form.Group>
-        <Button type='submit' varient='primary' >Sign In</Button>
+        <Button type='submit' variant='outline-success' >Sign In</Button>
         </Form>
         <Row className='py-3'>
             <Col>

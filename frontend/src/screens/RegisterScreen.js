@@ -106,7 +106,7 @@ function RegisterScreen() {
 
             </Form.Control>
         </Form.Group>
-        <Button type='submit' varient='primary' >Register</Button>
+        <Button type='submit' variant='outline-success' >Register</Button>
         </Form>
 
         <Row className='py-3'>
