@@ -1,10 +1,10 @@
 import React,{useState} from 'react'
 
-import { Form ,Button } from 'react-bootstrap'
+import { Form ,Button,Col} from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch,useSelector } from 'react-redux'
-
-import { saveShippingAddress } from '../actions/cartAction'
+import CheckoutSteps from '../components/CheckoutSteps'
+import { savePaymentMethod } from '../actions/cartAction'
 import FormContainer from '../components/FormContainer'
 function PaymentScreen() {
      
@@ -15,16 +15,44 @@ function PaymentScreen() {
     const[paymentMethod, setPaymentMethod]=useState('Esewa')
     if (!shippingAddress.addesss){
       navigator('/shipping')
-    }
+     }
     const submitHandler=(e)=>{
       e.preventDefault()
-      dispatch()
+      console.log('payment')
+      dispatch(savePaymentMethod(paymentMethod))
       navigator('/placeorder')
     }
   return (
     <FormContainer>
-      
-    </FormContainer>
+      <CheckoutSteps step1 step2 step3/>   
+      <Form onSubmit={submitHandler}>
+        <Form.Group>
+          <Form.Label as='legend'>Select Method</Form.Label>
+          <Col>
+            <Form.Check
+              type='radio'
+              label='Esewa'
+              id='Esewa'
+              name='paymentMethod'
+              checked
+              onChange={(e)=>setPaymentMethod(e.target.value)}
+            >
+             
+            </Form.Check>
+          </Col>
+
+        </Form.Group>
+        <Button 
+        type='submit' 
+        variant='outline-success'
+        >
+          Continue
+        </Button>
+        </Form> 
+
+      </FormContainer>
+
+   
   )
 }
 

@@ -25,6 +25,9 @@ const userInfoFromStorage = localStorage.getItem('userInfo') ?
         
 const shippingAddressFromStorage = localStorage.getItem('shippingAddress') ?
     JSON.parse(localStorage.getItem('shippingAddress')) : {} // {} because it is object 
+    
+const PaymentMethodFromStorage = localStorage.getItem('paymentMethod') ?
+JSON.parse(localStorage.getItem('paymentMethod')) : null
 
         
 const initialState ={
@@ -32,7 +35,7 @@ const initialState ={
         Cart:{
             cartItems: cartItemFromStorage,
             shippingAddress:shippingAddressFromStorage, 
-
+            paymentMethod:PaymentMethodFromStorage,
         
         },
         userLogin:{userInfo: userInfoFromStorage}
@@ -42,7 +45,7 @@ const store = configureStore({
     reducer,
     preloadedState: initialState,
     devTools: process.env.NODE_ENV !== 'production',
-                            });
+    });
 
 
 

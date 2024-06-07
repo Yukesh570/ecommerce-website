@@ -88,7 +88,7 @@ function ShippingScreen() {
 
             </Form.Control>
         </Form.Group>
-            <Button type='submit' varient='outline-success'> Continue</Button>
+            <Button type='submit' variant='outline-success'> Continue</Button>
         </Form>
     </FormContainer>
   )
