@@ -48,7 +48,7 @@ def registerUser(request):
         return Response(message,status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated])  
 def getUserProfile(request):
         user = request.user  #user is taken from the token using api_view
        
