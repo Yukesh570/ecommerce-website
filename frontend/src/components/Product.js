@@ -3,7 +3,7 @@ import { Card } from 'react-bootstrap'
 import Rating from './Rating'
 import {Link} from 'wouter'
 
-function Product({product}) {
+function    Product({product}) {
   return (
     <Card className='my-3 p-5 rounded'>
         <Link to={`/product/${product._id}` }>

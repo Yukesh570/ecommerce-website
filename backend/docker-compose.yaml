@@ -1,0 +1,12 @@
+services:
+  img:
+  # build: .   #current directory ma dockerfile search garxa or you can default put direction by
+    build:     #if you dont put dot dockerfile ko path specify garnu parxa by putting context and dockerfile
+      context: .
+      dockerfile: backend\dockerfile
+    container_name: ecommerce_container2
+    ports:
+      - 8000:8000
+
+
+        

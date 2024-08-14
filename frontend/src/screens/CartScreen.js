@@ -139,7 +139,7 @@ function CartScreen() {
                   <Button
                     type='button'
                     variant='outline-success'
-                    disabled={cartItems.lenth === 0}
+                    d={cartItems.lenth === 0}
                     onClick={checkoutHandler}
                   >
                     Proceed To Checkout

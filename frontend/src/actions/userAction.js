@@ -150,7 +150,7 @@ export const updateUserProfile=(user)=> async(dispatch,getState)=>{
                 'Content-type':'application/json',
                 Authorization : `Bearer ${userInfo.token}`
             }   
-        }
+        } 
         
         const {data}=await axios.put(
             `/api/users/profile/update/ `,

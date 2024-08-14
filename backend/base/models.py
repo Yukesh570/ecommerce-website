@@ -18,7 +18,8 @@ class Product(models.Model):           # this will convert our class into a mode
     createdAt=models.DateTimeField(auto_now_add=True)
     _id=models.AutoField(primary_key=True,editable=False)
 
-
+    # class Meta:
+    #     verbose_name="brand"   #change the main name of the product
     def  __str__(self):
         return self.name
     
