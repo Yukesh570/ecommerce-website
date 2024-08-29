@@ -22,7 +22,7 @@ class Product(models.Model):           # this will convert our class into a mode
     #     verbose_name="brand"   #change the main name of the product
 
     class Meta:
-        verbose_name="Product"
+        verbose_name="Products"
     def  __str__(self):
         return self.name
     
@@ -36,7 +36,7 @@ class Review(models.Model):
     _id=models.AutoField(primary_key=True,editable=False)
 
     class Meta:
-        verbose_name="Review"
+        verbose_name="Reviews"
      
     def __str__(self):
         return str(self.rating)
@@ -55,7 +55,7 @@ class Order(models.Model):
     _id=models.AutoField(primary_key=True,editable=False)
 
     class Meta:
-            verbose_name="Order"
+            verbose_name="Orders"
     
     def __str__(self):
         return str(self.createdAt)
@@ -70,7 +70,7 @@ class OrderItem(models.Model):
     _id=models.AutoField(primary_key=True,editable=False)
 
     class Meta:
-        verbose_name="OrderItem"
+        verbose_name="OrderItems"
     def __str__(self):
         return str(self.name)
     
@@ -86,7 +86,7 @@ class ShippingAddress(models.Model):
     _id=models.AutoField(primary_key=True,editable=False)
     
     class Meta:
-        verbose_name="ShippingAddress"
+        verbose_name="ShippingAddresses"
     def __str__(self):
         return str(self.address )
 
