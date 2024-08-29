@@ -54,9 +54,9 @@ class Order(models.Model):
     createdAt=models.DateTimeField(auto_now_add=True)
     _id=models.AutoField(primary_key=True,editable=False)
 
-
     class Meta:
-        verbose_name="People order"
+            verbose_name="Order"
+    
     def __str__(self):
         return str(self.createdAt)
 
@@ -69,9 +69,8 @@ class OrderItem(models.Model):
     image=models.CharField(max_length=200,null=True , blank=True)
     _id=models.AutoField(primary_key=True,editable=False)
 
-
     class Meta:
-        verbose_name="orderitem"
+        verbose_name="OrderItem"
     def __str__(self):
         return str(self.name)
     
@@ -85,20 +84,16 @@ class ShippingAddress(models.Model):
     country=models.CharField(max_length=200,null=True , blank=True)
     shippingPrice=models.DecimalField(max_digits=7,decimal_places=2,null=True , blank=True) 
     _id=models.AutoField(primary_key=True,editable=False)
-    class Meta:
-            verbose_name="orderitem"
     
+    class Meta:
+        verbose_name="ShippingAddress"
     def __str__(self):
         return str(self.address )
 
 
-
     
+
 
 
  
 
-
-
-
-    
