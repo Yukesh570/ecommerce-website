@@ -20,6 +20,9 @@ class Product(models.Model):           # this will convert our class into a mode
 
     # class Meta:
     #     verbose_name="brand"   #change the main name of the product
+
+    class Meta:
+        verbose_name="Product"
     def  __str__(self):
         return self.name
     
