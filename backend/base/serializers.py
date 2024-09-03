@@ -12,7 +12,7 @@ class UserSerializer(serializers.ModelSerializer):
         model=User
         fields=['_id', 'username','email','name','isAdmin']
 
-    def get_name(self,obj): #obj is the user object #(get_na me)get_ is rule only name is the function
+    def get_name(self,obj): #obj is the user object #(get_name)get_ is rule only name is the function
         name= obj.first_name
         if name=='' :
             name=obj.email
@@ -25,7 +25,6 @@ class UserSerializer(serializers.ModelSerializer):
     
     def get_isAdmin(self,obj):
         return obj.is_staff
-    
 
 class UserSerializerWithToken(UserSerializer):
     token= serializers.SerializerMethodField(read_only=True)
