@@ -143,7 +143,7 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": 'yukesh_ecommerce',
-        "HOST": 'localhost',
+        "HOST": 'eco-db',
         "PORT": '5432',
         "USER": 'yukesh',
         "PASSWORD": 'android18)',

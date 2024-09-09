@@ -1,0 +1,24 @@
+services:
+  ecommerce: 
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ecommerce
+
+    restart: always
+    depends_on:
+      - eco-db
+    environment:
+      - DATABASE_URL=postgres://yukesh:android18)@eco-db:5432/yukesh_ecommerce
+    ports:
+      - "8000:8000"
+
+  eco-db:
+    image: postgres:16
+    container_name: eco-db
+    ports:
+      - "5438:5432"
+    environment:
+      POSTGRES_DB: yukesh_ecommerce
+      POSTGRES_USER: yukesh
+      POSTGRES_PASSWORD: android18)
